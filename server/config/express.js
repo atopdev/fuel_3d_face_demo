@@ -6,6 +6,7 @@ const compress = require('compression');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
 const cors = require('cors');
+const path = require('path');
 const passport = require('passport');
 const strategies = require('./passport');
 const config = require('./index');
@@ -31,6 +32,13 @@ app.use(passport.initialize());
 passport.use('jwt', strategies.jwt);
 
 app.use('/api/v1', routes);
+
+if (config.env === 'production') {
+  app.use(express.static(path.join(__dirname, '../../build')));
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
 
 app.use(error.converter);
 app.use(error.notFound);

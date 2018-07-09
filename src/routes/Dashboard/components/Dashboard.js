@@ -18,8 +18,8 @@ class Dashboard extends React.Component {
             :
               <Row>
                 { faces && faces.map(face => (
-                    <Col sm={12} md={6} lg={4} key={face.name}>
-                      <Link to={`/${face.name}`}>
+                    <Col sm={12} md={6} lg={4} key={face.id}>
+                      <Link to={`/${face.id}`}>
                         <Card inverse>
                           <CardImg width="100%" src={face.url} alt={face.name} />
                           <CardImgOverlay>

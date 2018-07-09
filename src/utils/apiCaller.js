@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moment from 'moment-timezone';
 
-const baseUrl = 'http://localhost:3001/api/v1';
+const baseUrl = process.env.REACT_APP_API_URL;
 
 export const anonymousRequest = (method, path, options = {}) => {
   const config = {

@@ -1,6 +1,9 @@
 import React from 'react';
+import CircularProgressbar from 'react-circular-progressbar';
+import GradientSVG from './GradientSVG';
+import 'react-circular-progressbar/dist/styles.css';
 
-class ProgressBar extends React.Component {
+class RadialChart extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,22 +40,21 @@ class ProgressBar extends React.Component {
 
   render() {
     const { percent } = this.state;
-    const { showLabel } = this.props;
 
     return (
-      <div className="progress-bar-wrapper">
-        <div className="progress-bar-block">
-          <div className="progress-bar-bg"></div>
-          <div className="progress-bar-active" style={{width: `${percent}%`}}></div>
-        </div>
-        { showLabel &&
-          <div className="progress-bar-label">
-            {percent} %
-          </div>
-        }
+      <div className="radial-wrapper">
+        <GradientSVG idCSS="gradient_progress" startColor="#0aafd2" endColor="#0dc204" rotation="0" />
+        <CircularProgressbar
+          percentage={percent}
+          text={percent}
+          counterClockwise={true}
+          styles={{
+            text: { fill: 'url(#gradient_progress)', fontSize: '50px', fontWeight: 600 }
+          }}
+        />
       </div>
     );
   }
 };
 
-export default ProgressBar;
+export default RadialChart;

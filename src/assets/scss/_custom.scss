@@ -71,3 +71,22 @@ html, body {
     text-align: right;
   }
 }
+
+.radial-wrapper {
+  padding: 32px;
+
+  .CircularProgressbar .CircularProgressbar-path {
+    stroke: url(#gradient_progress);
+  }
+}
+
+@media all and (max-width: 767px) {
+  .right-pane {
+    border-width: 0;
+    margin-left: 0;
+  }
+
+  .match-block {
+    flex-direction: column;
+  }
+}

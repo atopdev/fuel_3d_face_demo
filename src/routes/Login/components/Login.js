@@ -20,15 +20,17 @@ const Login = ({ submitting, loading, handleSubmit }) => (
           <CardGroup>
             <Card className="p-4">
               <CardBody>
-                <h1>Login</h1>
-                <p className="text-muted">Sign In to your account</p>
-                <Field name="email" type="email" label="Email" component={renderInput} />
-                <Field name="password" type="password" label="Password" component={renderInput} />
-                <Row>
-                  <Col>
-                    <Button type="submit" color="primary" className="px-4" disabled={submitting || loading} onClick={handleSubmit}>Login</Button>
-                  </Col>
-                </Row>
+                <form onSubmit={handleSubmit}>
+                  <h1>Login</h1>
+                  <p className="text-muted">Sign In to your account</p>
+                  <Field name="email" type="email" label="Email" component={renderInput} />
+                  <Field name="password" type="password" label="Password" component={renderInput} />
+                  <Row>
+                    <Col>
+                      <Button type="submit" color="primary" className="px-4" disabled={submitting || loading}>Login</Button>
+                    </Col>
+                  </Row>
+                </form>
               </CardBody>
             </Card>
           </CardGroup>

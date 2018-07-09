@@ -10,4 +10,7 @@ router.route('/')
 router.route('/:faceId')
   .get(authorize(), controller.show);
 
+router.route('/:faceId/analyze')
+  .get(authorize(), controller.analyze);
+
 module.exports = router;

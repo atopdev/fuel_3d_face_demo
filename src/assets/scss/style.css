@@ -9999,5 +9999,17 @@ html, body {
   min-width: 100px;
   text-align: right; }
 
+.radial-wrapper {
+  padding: 32px; }
+  .radial-wrapper .CircularProgressbar .CircularProgressbar-path {
+    stroke: url(#gradient_progress); }
+
+@media all and (max-width: 767px) {
+  .right-pane {
+    border-width: 0;
+    margin-left: 0; }
+  .match-block {
+    flex-direction: column; } }
+
 html body .app.flex-row.align-items-center {
   height: 100vh; }
